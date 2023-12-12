@@ -1,0 +1,47 @@
+# Configuration for Cog ⚙️
+# Reference: https://github.com/replicate/cog/blob/main/docs/yaml.md
+
+build:
+  # set to true if your model requires a GPU
+  gpu: true
+
+  # a list of ubuntu apt packages to install
+  system_packages:
+    - "python3-opencv"
+
+  # python version in the form '3.8' or '3.8.12'
+  python_version: "3.8"
+
+  # a list of packages in the format <package-name>==<version>
+  python_packages:
+    - numpy
+    - torch>1.10.0
+    - spacy>=3.6.0
+    - torchvision
+    - opencv-python
+    - tensorflow
+    - pycocotools
+    - onnxruntime
+    - onnx
+    - huggingface_hub
+    - diffusers
+    - transformers>=4.33.1
+    - xformers>=0.0.22
+    - pillow>=10.0.1
+    - deepspeed>=0.11.0
+    - scikit-learn
+    - protobuf==3.20.0
+    - sentencepiece
+    - einops
+    - accelerate
+    - triton
+
+  # commands run after the environment is setup
+  # run:
+  # - "echo env is ready!"
+  # - "echo another command if needed"
+
+image: "r8.im/naklecha/cogvlm"
+
+# predict.py defines how predictions are run on your model
+predict: "predict.py:Predictor"
